@@ -11,10 +11,8 @@ class MenuButton extends Sprite {
 	public var itemText:TextField;
 	public var onClick:Dynamic;
 	private var elements:Array<MenuButton>;
-	private var blacktf = new TextFormat(Assets.getFont("assets/SLUGFESTNF.TTF").fontName,
+	private var tFormat = new TextFormat(Assets.getFont("assets/SLUGFESTNF.TTF").fontName,
 				50, 0x000000, null, null, null, null, null, TextFormatAlign.CENTER);
-	private var whitetf = new TextFormat(Assets.getFont("assets/SLUGFESTNF.TTF").fontName,
-				50, 0xFFFFFF, null, null, null, null, null, TextFormatAlign.CENTER);
 
 	public function new(text:String, parent:Sprite, elements:Array<MenuButton>, onClick:Dynamic) {
 		super();
@@ -27,8 +25,8 @@ class MenuButton extends Sprite {
 		//itemText.y = parent.stageHeight / 2 - (numElements * 60) / 2 + elements.length * 60;
 		itemText.visible = true;
 		itemText.selectable = false;
-		itemText.setTextFormat(blacktf);
-		itemText.defaultTextFormat = blacktf;
+		itemText.setTextFormat(tFormat);
+		itemText.defaultTextFormat = tFormat;
 		itemText.width = Main.superStage.stageWidth;
 		itemText.height = 100;
 		itemText.multiline = true;
@@ -39,14 +37,15 @@ class MenuButton extends Sprite {
 		elements.push(this);
 	}
 	
-	public function setBlack() {
-		itemText.setTextFormat(blacktf);
-		itemText.defaultTextFormat = blacktf;
+	public function setColor(color) {
+		tFormat.color = color;
+		itemText.setTextFormat(tFormat);
+		itemText.defaultTextFormat = tFormat;
 	}
 	
-	public function setWhite() {
-		itemText.setTextFormat(whitetf);
-		itemText.defaultTextFormat = whitetf;
+	public function setPosition(x:Float, y:Float) {
+		itemText.x = x;
+		itemText.y = y;
 	}
 	
 	public function calculatePosition() {

@@ -8,8 +8,6 @@ import spaceships.*;
 import levels.*;
 
 class Level1 extends Sprite {
-    public var speedX = 0.0;
-    public var acceleration = 0.01;
     public var parentLayer:Sprite;
     public var spaceship:Spaceship;
 	
@@ -40,12 +38,6 @@ class Level1 extends Sprite {
 	
 	public function update():Void {
 		spaceship.update();
-		if (speedX > 5) {
-			acceleration = -0.01;
-		} else if (speedX < 0.1) {
-			acceleration = 0.01;
-		}
-		speedX += acceleration;
 		Gameplay.asteroidManager.update();
 	}
 	
@@ -62,17 +54,17 @@ class Level1 extends Sprite {
 		var ast:Asteroid = null;
 		var ran = random(0, 10);
 		if (ran > 8) {
-			ast = new Asteroid(spaceship, speedX);
+			ast = new Asteroid(spaceship);
 		} else if (ran > 7) {
-			ast = new Fuel(spaceship, speedX);
+			ast = new Fuel(spaceship);
 		} else if (ran > 6) {
-			ast = new Shield(spaceship, speedX);
+			ast = new Shield(spaceship);
 		} else if (ran > 5.5) {
-			ast = new JumpBoost(spaceship, speedX);
+			ast = new JumpBoost(spaceship);
 		} else if (ran > 5) {
-			ast = new FallBoost(spaceship, speedX);
+			ast = new FallBoost(spaceship);
 		} else {
-			ast = new SpeedUp(spaceship, speedX);
+			ast = new SpeedUp(spaceship);
 		}
 		return ast;
 	}

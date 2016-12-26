@@ -38,7 +38,9 @@ class HitNItems extends Task {
 			return;
 		}
 		trace(++progress + "/" + goal + " " + itemStr);
+		progressText.setText(progress + "/" + goal);
 		if (progress >= goal) {
+			progressText.setText("completed!");
 			trace(description + " completed!");
 			completed = true;
 		}

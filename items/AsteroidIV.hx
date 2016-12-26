@@ -9,9 +9,9 @@ class AsteroidIV extends AsteroidIII {
 	private var colorDelta = 1;
 	private var colorOffset = 0;
 	
-	public function new (spaceship, xSpeed) {
+	public function new (spaceship) {
 		fillColor = 0x33FF00;
-		super(spaceship, xSpeed);
+		super(spaceship);
 	}
 	
 	override public function changeColor():Void {

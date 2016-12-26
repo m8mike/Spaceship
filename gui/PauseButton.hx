@@ -16,15 +16,19 @@ class PauseButton extends Sprite {
 		this.parentLayer = parentLayer;
 		pauseScreen = new PauseScreen(parentLayer, this);
 		super();
-		graphics.beginFill(0xFFFFFF);
+		draw(0x000000);
+		x = Main.superStage.stageWidth / 2;
+		y = 10;
+		parentLayer.addChild(this);
+		addEventListener(MouseEvent.MOUSE_DOWN, togglePause);
+	}
+	
+	public function draw(color:UInt) {
+		graphics.clear();
+		graphics.beginFill(color);
 		graphics.drawRect(-15, 0, 10, 20);
 		graphics.drawRect(5, 0, 10, 20);
 		graphics.endFill();
-		x = Main.superStage.stageWidth / 2;
-		y = 10;
-		graphics.endFill();
-		parentLayer.addChild(this);
-		addEventListener(MouseEvent.MOUSE_DOWN, togglePause);
 	}
 	
 	public function togglePause(e:Event = null) {

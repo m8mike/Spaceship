@@ -12,8 +12,8 @@ class AsteroidIII extends Asteroid {
 	private var glow = new Sprite();
 	private var glowScale = 1.0;
 	
-	public function new (spaceship, xSpeed) {
-		super(spaceship, xSpeed);
+	public function new (spaceship) {
+		super(spaceship);
 		rotationSpeed = random( -6, 6);
 	}
 	

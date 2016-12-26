@@ -21,10 +21,10 @@ class Asteroid extends Sprite {
 		return Math.random() * (max - min) + min;
 	}
 	
-	public function new (spaceship, xSpeed) {
+	public function new (spaceship) {
 		super();
 		this.spaceship = spaceship;
-		speed = random(1, 5) + xSpeed;
+		speed = random(0, 4);
 		x = random((Main.superStage.stageWidth + 60), 1000);
 		y = random(0, Main.superStage.stageHeight);
 		draw();
@@ -54,7 +54,7 @@ class Asteroid extends Sprite {
 		if (x < -10 - size) {
 			remove();
 		}
-		x -= speed;
+		x -= speed + Gameplay.level.spaceship.speed.x;
 	}
 	
 	public function registerHit() {

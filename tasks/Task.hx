@@ -1,5 +1,6 @@
 package tasks;
 
+import gui.TextGUI;
 import openfl.display.Sprite;
 import openfl.text.TextField;
 import openfl.text.TextFormat;
@@ -7,8 +8,9 @@ import openfl.text.TextFormatAlign;
 import openfl.Assets;
 
 class Task {
-	private var description:String;
+	public var description:String;
 	private var itemText:TextField;
+	private var progressText:TextGUI;
 	
 	public function new(desc:String) {
 		description = desc;
@@ -31,6 +33,10 @@ class Task {
 		itemText.multiline = true;
 		itemText.wordWrap = true;
 		parent.addChild(itemText);
+	}
+	
+	public function setProgressText(text:TextGUI) {
+		progressText = text;
 	}
 	
 	public function update() {

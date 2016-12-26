@@ -9,9 +9,9 @@ import items.*;
 
 class JumpBoost extends Asteroid {
 	
-	public function new (spaceship, xSpeed) {
-		super(spaceship, xSpeed);
-		speed = random(1, 3) + xSpeed;
+	public function new (spaceship) {
+		super(spaceship);
+		speed = random(0, 2);
 		draw();
 	}
 	

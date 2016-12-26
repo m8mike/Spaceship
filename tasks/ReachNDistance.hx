@@ -24,9 +24,11 @@ class ReachNDistance extends Task {
 			return;
 		}
 		currentDist++;
+		progressText.setText(currentDist + "/" + goal);
 		distText.setText(currentDist + "");
 		if (currentDist >= goal) {
 			trace(description + " completed!");
+			progressText.setText("completed!");
 			completed = true;
 		}
 	}

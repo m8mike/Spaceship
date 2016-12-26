@@ -34,7 +34,6 @@ class AsteroidManager {
 		for (ast in asteroids) {
 			var asteroid:Asteroid = cast(ast, Asteroid);
 			var spaceship = Gameplay.level.spaceship;
-			asteroid.speed += spaceship.speed.x;
 			asteroid.update();
 			var shipCenter = new Point(spaceship.x-40, spaceship.y);
 			var astCenter = new Point(asteroid.x, asteroid.y);

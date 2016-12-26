@@ -9,9 +9,9 @@ import items.*;
 
 class SpeedUp extends Asteroid {
 	
-	public function new (spaceship, xSpeed) {
-		super(spaceship, xSpeed);
-		speed = random(1, 3) + xSpeed;
+	public function new (spaceship) {
+		super(spaceship);
+		speed = random(0, 3);
 		draw();
 	}
 	
@@ -27,6 +27,6 @@ class SpeedUp extends Asteroid {
 	}
 	
 	override public function hit() {
-		spaceship.speed.x += 0.03;
+		spaceship.speed.x += 0.3;
 	}
 }

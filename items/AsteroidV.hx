@@ -7,8 +7,8 @@ import openfl.display.LineScaleMode;
 
 class AsteroidV extends AsteroidIV {
 	
-	public function new (spaceship, xSpeed) {
-		super(spaceship, xSpeed);
+	public function new (spaceship) {
+		super(spaceship);
 	}
 	
 	override public function changeColor():Void {

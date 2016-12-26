@@ -12,8 +12,8 @@ class AsteroidII extends Asteroid {
 	private var white = new Sprite();
 	private var timeDelay = 5;
 	
-	public function new (spaceship, xSpeed) {
-		super(spaceship, xSpeed);
+	public function new (spaceship) {
+		super(spaceship);
 		rotationSpeed = random( -6, 6);
 	}
 	

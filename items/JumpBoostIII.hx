@@ -10,8 +10,8 @@ import openfl.display.Sprite;
 class JumpBoostIII extends JumpBoost {
     public var scaleDelta = 0.01;
 	
-	public function new (spaceship, xSpeed) {
-		super(spaceship, xSpeed);
+	public function new (spaceship) {
+		super(spaceship);
 	}
 	
 	override public function update() {

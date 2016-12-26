@@ -44,9 +44,14 @@ class Gameplay {
 		controls = new Controls();
 		pauseButton = new PauseButton(parent);
 		if (levelId == 4) {
-			pauseButton.pauseScreen.setWhite();
+			pauseButton.pauseScreen.setTextColor(0xFFFFFF);
 		} else {
-			pauseButton.pauseScreen.setBlack();
+			pauseButton.pauseScreen.setTextColor(0x000000);
+		}
+		if (levelId == 6) {
+			pauseButton.draw(0x000000);
+		} else {
+			pauseButton.draw(0xFFFFFF);
 		}
 		Main.superStage.addEventListener(Event.ENTER_FRAME, update);
 	}
@@ -54,7 +59,6 @@ class Gameplay {
 	public static function update(e:Event) {
 		level.update();
 		taskManager.update();
-		//distance += 1 + spaceship.xSpeed*10;
 	}
 	
 	public static function restartGame() {

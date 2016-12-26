@@ -7,9 +7,10 @@ class TaskManager {
 	public function new() {
 		//tasks.push(new HitNItems(10, Shield));
 		//tasks.push(new HitNItems(100, SpeedUp));
-		//tasks.push(new HitNItems(20, Fuel, true));
-		//tasks.push(new DestroyNShields(20, true));
-		tasks.push(new ReachNDistance(2000, false));
+		tasks.push(new HitNItems(20, Fuel, true));
+		tasks.push(new DestroyNShields(20, true));
+		tasks.push(new ReachNDistance(10000, false));
+		//tasks.push(new ReachNSpeed(10));
 	}
 	
 	public static function hit(item:Asteroid) {
@@ -21,6 +22,18 @@ class TaskManager {
 			}
 		}
 	}
+	
+	public function getTask(i:Int):Task {
+		return tasks[i];
+	}
+	
+	/*public function getDescriptions():Array<String> {
+		var descriptions:Array<String> = [];
+		for (task in tasks) {
+			descriptions.push(task.description);
+		}
+		return descriptions;
+	}*/
 	
 	public function update() {
 		for (task in tasks) {

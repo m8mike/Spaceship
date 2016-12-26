@@ -7,12 +7,15 @@ import openfl.text.TextFormatAlign;
 import openfl.Assets;
 
 class TextGUI {
-	public var itemText:TextField;
-	private var defaultTF = new TextFormat(Assets.getFont("assets/SLUGFESTNF.TTF").fontName, 30, 0x000000);
+	private var itemText:TextField;
+	private var defaultTF:TextFormat;
+	private var size:Int;
 	
-	public function new(parent:Sprite, x:Float, y:Float) {
+	public function new(parent:Sprite, x:Float, y:Float, size:Int = 30) {
+		this.size = size;
+		defaultTF = new TextFormat(Assets.getFont("assets/SLUGFESTNF.TTF").fontName, size, 0x000000);
 		itemText = new TextField();
-		itemText.text = "123";
+		itemText.text = "";
 		itemText.x = x;
 		itemText.y = y;
 		itemText.visible = true;
@@ -24,6 +27,19 @@ class TextGUI {
 		itemText.multiline = true;
 		itemText.wordWrap = true;
 		parent.addChild(itemText);
+	}
+	
+	public function setPosition(x:Float, y:Float, w:Float, h:Float) {
+		itemText.x = x;
+		itemText.y = y;
+		itemText.width = w;
+		itemText.height = h;
+	}
+	
+	public function setTextColor(color:UInt) {
+		defaultTF = new TextFormat(Assets.getFont("assets/SLUGFESTNF.TTF").fontName, size, color);
+		itemText.setTextFormat(defaultTF);
+		itemText.defaultTextFormat = defaultTF;
 	}
 	
 	public function setText(text:String) {

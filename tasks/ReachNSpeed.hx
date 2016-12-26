@@ -16,15 +16,18 @@ class ReachNSpeed extends Task {
 	}
 	
 	override public function update() {
-		if (completed) {
-			return;
-		}
 		if (Gameplay.level.spaceship == null) {
 			return;
 		}
-		speedText.setText(Gameplay.level.spaceship.speed.x + "");
+		var speed = Math.floor(Gameplay.level.spaceship.speed.x * 100) / 100;
+		speedText.setText(speed + "");
+		if (completed) {
+			return;
+		}
+		progressText.setText(speed + "/" + goal);
 		if (Gameplay.level.spaceship.speed.x >= goal) {
 			trace(description + " completed!");
+			progressText.setText("completed!");
 			completed = true;
 		}
 	}

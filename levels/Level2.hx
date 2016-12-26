@@ -26,17 +26,17 @@ class Level2 extends Level1 {
 		var ast:Asteroid = null;
 		var ran = random(0, 10);
 		if (ran > 8) {
-			ast = new AsteroidII(spaceship, speedX);
+			ast = new AsteroidII(spaceship);
 		} else if (ran > 7) {
-			ast = new Fuel(spaceship, speedX);
+			ast = new Fuel(spaceship);
 		} else if (ran > 6) {
-			ast = new Shield(spaceship, speedX);
+			ast = new Shield(spaceship);
 		} else if (ran > 5.5) {
-			ast = new JumpBoost(spaceship, speedX);
+			ast = new JumpBoost(spaceship);
 		} else if (ran > 5) {
-			ast = new FallBoost(spaceship, speedX);
+			ast = new FallBoost(spaceship);
 		} else {
-			ast = new SpeedUp(spaceship, speedX);
+			ast = new SpeedUp(spaceship);
 		}
 		return ast;
 	}

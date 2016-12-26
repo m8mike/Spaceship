@@ -9,13 +9,14 @@ import tasks.TaskManager;
 
 class Spaceship extends Sprite {
 	public var pressed = false;
-    public var speed = new Point();
+    public var speed = new Point(1, 0);
 	public var shield = new Sprite();
 	private var gravity = 0.1;
 	private var thrust = 0.25;
     public var fuel = 500.0;
     private var smoke = [];
     private var smokeDelay = 0;
+    private var currentX = 0.0;
 	
 	public function new (x, y) {
 		super();
@@ -80,14 +81,16 @@ class Spaceship extends Sprite {
 	}
 	
 	public function decreaseSpeed() {
-		if (speed.x > 0) {
-			speed.x -= 0.01;
+		currentX += speed.x;
+		if (speed.x > 1) {
+			speed.x -= 0.02;
 		} else {
-			speed.x = 0;
+			speed.x = 1;
 		}
 	}
 	
 	public function restart() {
+		currentX = 0.0;
 		y = 200;
 		speed = new Point();
 		shield.visible = false;

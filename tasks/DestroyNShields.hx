@@ -23,7 +23,9 @@ class DestroyNShields extends Task {
 			return;
 		}
 		trace(++progress + "/" + goal + " Shields destroyed");
+		progressText.setText(progress + "/" + goal);
 		if (progress >= goal) {
+			progressText.setText("completed!");
 			trace(description + " completed!");
 			completed = true;
 		}

@@ -3,8 +3,8 @@ package items;
 class FuelIII extends Fuel {
 	private var scaleDelta = 0.01;
 	
-	public function new (spaceship, xSpeed) {
-		super(spaceship, xSpeed);
+	public function new (spaceship) {
+		super(spaceship);
 	}
 	
 	override public function update() {
